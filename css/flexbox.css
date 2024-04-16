@@ -1,0 +1,160 @@
+/* Cabecera */
+
+.cabecera__container{
+    display: flex; /* elementos uno al lado del otro*/
+    justify-content: space-between; /*elementos se alinean con el mismo espaciado*/
+    align-items: center; /*elementos se centran (de altura?)*/
+    position: fixed; /* cabecera queda fijo al scrollear */
+    top: 0; /* en qué coordenada queda fijo*/
+}
+
+/* como hacer para ocultar este campo de busqueda en dispositivos moviles*/
+/* con consultas de mediios, los cuales ocultan ciertos bloques de codigo cuando una condición se cumple */
+/* display: none; oculta */
+.cabecera__buscar__item{
+    display: none;
+}
+
+ /* Menú */ 
+
+.menu__container{
+    position: fixed;
+    bottom: 0%; /* menu queda en la parte inferior */
+    height: 75px; /* altura */
+    width: 100%; /* ocupa todo el ancho */
+}
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.menu__lista li{
+    align-self: center; /* centra todos los elementos en el centro del contenedor */
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column; /* Necesitamos alinear los elementos de forma vertical. Con esto conseguimos que el icono se posicione arriba del texto */
+    gap: 5px;
+}
+
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+ /* Sección superior */
+
+ .superior__seccion__container{
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* que no se quiebre el texto de los elementos */
+    overflow: scroll;
+    gap: 15px; /* agrega espacio entre cada uno de los elementos */
+}
+
+/* Sección vídeos */
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1; /*los elementos se distribuyan aprovechando el espacio proporcionalmente en el contenedor*/
+}
+
+.videos__container{
+    display: flex;
+    flex-wrap: wrap; /*hace que los vídeos se distribuyan en todo el contenedor*/
+    gap: 10px; /*agregar espacio entre cu de los videos*/
+    
+}
+
+/* Rodapie */
+
+.rodapie__container{
+    display: flex;
+    /* flex-direction: column; cambia la orientanción del eje vertifical, horizontal de los elementos*/
+     /* flex-wrap: wrap;envoltura flexible ayuda a quebrar los elementos, esas columnas o filas en varias partes para que se vayan ajustando adentro del contenedor*/
+     flex-flow: wrap; /* combina las dos anteriores propiedades */
+ }
+
+/* si el dispositivo es menor de 834px no se muestra el campo de busqueda*/
+@media (min-width:834px) {
+    /* Cabecera */
+    .cabecera__buscar__item{
+        display: block;
+    }
+
+    /* Desafío Menú Lateral */
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+
+       /* Rodapie */
+       .rodapie__container{
+        justify-content: space-between;
+    }
+    
+}
+
+
+
+/* Para dispositivos */ 
+
+@media (min-width:1440px) {
+
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        display: flex;
+    }
+
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse;
+    }
+
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items: center; /*centrar los elementos a la misma altura*/
+    }
+
+    .videojuegos{
+        order: 3;
+    }
+
+    .peliculas{
+        order: 2;
+    }
+
+    .premium{
+        order: 1;
+    }
+
+
+
+
+}
+
